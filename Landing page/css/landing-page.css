@@ -1,0 +1,73 @@
+body{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  margin:0;
+  padding-top:16px;
+  padding-bottom:16px;
+  padding-left:8px;
+  padding-right:8px;
+  min-height:100vh;
+  background: linear-gradient(to top right,#010006 20%,#110C1D 50%,#150D2B ,#1A0E39 70%,#1E0E43 80% ,#200560);
+  background-attachment: fixed;
+}
+
+.svg-border-container{
+  margin:0;
+  padding:0;
+  position:relative;
+  display:flex;
+  align-items:center;
+  height:812px;
+  width:1228px;
+  top:106px;
+}
+
+.tars-logo{
+  margin:0;
+  padding:0;
+  font-family: Maztech;
+  color:#CAB5FF;
+  font-size:65px;
+  justify-content: start;
+  position:absolute;
+  top:0;
+}
+
+.nav-bar{
+  margin:0;
+  padding:3px;
+  font-family:Kode mono;
+
+  font-size:16px;
+  width:699;
+  height:39;
+  display:flex;
+  position:absolute;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  top:0;
+  right:0;
+  border:none;
+  background: linear-gradient(to right,#1a0d39,#1D0E40,#1F0F48,#251059,#281062 );
+  border-radius:35px;
+}
+
+.nav-bar::after{
+  content:'';
+  position:absolute;
+  height:49px;
+  width:693px;
+  border-radius:35px;
+  background-image:linear-gradient(to bottom left,#926EE8 ,#291651,#10022D 70%);
+  z-index:-1;
+}
+
+.about-us,.blogs,.past-projects,.our-team,.gallery,.live-events{
+  padding-top:8px;
+  padding-bottom:8px;
+  padding-left:15px;
+  padding-right:15px;
+  color:#CAB5FF;
+}
