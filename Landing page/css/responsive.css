@@ -1,123 +1,9 @@
-@media (min-width:1301px){
-  .body{
+/*mobile*/
+@media (max-width: 767px) {
+  body {
+    font-size: 15px;
     align-items:flex-start;
-    justify-content:center;
-  }
-  
-
-  .desktop-border-container{
-    top:0;
-  }
-
-  .tars-logo{
-    top:0px;
-    left:0px;
-  }
-  
-  .nav-menu{
-    display:none;
-  }
-
-  .content{
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items:flex-start;
-  }
-
-  .third-line{
-    width:60%;
-  }
-}
-
-
-@media (min-width:851px) and (max-width:1300px){
-  body{
-    align-items:flex-start;
-    justify-content:center;
-  }
-
-  .desktop-border-container {
-    padding-left:24px;
-    padding-right:24px;
-    margin:15px;
-    top:0px;
-    min-height:80vh;
-    max-height:200vh;
-  
-  }
-
-  .dsk-border{
-    width:100%;
-    height:100%;
-    object-fit:fill;
-  }
-  
-  .nav-menu{
-    display:none;
-  }
-
-  .nav-bar{
-    width:50%;
-    font-size:1.3vw;
-    gap:15px;
-    right:4%;
-    height:1.2vw;
-    top:1%;
-  }
-
-  .tars-logo{
-    position:absolute;
-    top:1%;
-    font-size:5.1vw;
-  }
-
-  .logo{
-    flex-direction:row;
-    width:30%;
-    right:10%;
-  }
-
-  .content{
-    top:40%;
-  }
-
-  .first-line{
-    font-size:3.5vh;
-}
-
-.second-line{
-  font-size:6vh;
-  padding:0;
-  padding-bottom:15px;
-}
-
-.third-line{
-  font-size:3vh;
-  max-width:650px;
-  width:85%;
-}
-}
-
-@media (min-width: 851px) and (max-width: 960px) {
-  .first-line  { font-size: 18px; }  
-  .second-line { font-size: 32px; }  
-  .third-line  { font-size: 12px;
-  width:70%; }  
-}
-
-
-
-@media(min-width:600px) and (max-width:850px){
-
-  body{
-    align-items:flex-start;
-    justify-content:center;
-  }
-
-  .desktop-border-container {
-    margin-left:20px;
-    margin-right:20px;
-    top:0px;
+    justify-content: center;
   }
 
   .nav-bar{
@@ -125,91 +11,177 @@
   }
 
   .tars-logo{
-    font-size:9vw;
-    top:0;
+    top:0%;
     left:2%;
+    font-size:9vw;
   }
 
   .nav-menu{
     font-size:7vw;
-  }
-
-  .content{
-  flex-direction:column;
-  justify-content: center;
-  align-items:flex-start;
-  width:65%;
-  display:flex;
-  flex-direction: column;
-  top:60%;
-}
-
-  .first-line{
-    font-size:3vh;
-  }
-
-  .second-line{
-    font-size:5vh;
-  }
-
-  .third-line{
-    font-size:2vh;
+    right:3%;
   }
 
   .logo{
-    flex-direction:column;
-    justify-content: center;
-    align-items:center;
-    width:45%;
-    height:45%;
-    left:27.5%;
-    top:12%;
+    width:50%;
+    height:40%;
+    left:25%;
+    top:15%;
+  }
+
+  .content{
+    width:70%;
+    left:10%;
+    top:60%;
+  }
+
+  .first-line{
+    font-size:3.5vw;
+    padding-bottom:4%;
+  }
+  .second-line{
+    font-size:6vw;
+    padding-bottom:3%;
+  }
+  .third-line{
+    font-size:2.5vw;
   }
 }
 
-
-@media(max-width:599px){
-  body{
+/*tablet*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
     align-items:flex-start;
-    justify-content:center;
-    padding-top:25px;
+    justify-content: center;
   }
-  .desktop-border-container {
-    margin:10px;
-    top:0;
+
+  .desktop-border-container{
+    padding:10px;
   }
 
   .nav-bar{
+    width:48vw;
+    font-size:1.3vw;
+    gap:15px;
+    right:1%;
+    top:2%;
+  }
+
+  .nav-menu{
     display:none;
   }
 
   .tars-logo{
-    font-size:9vw;
-    top:0;
-  }
-
-  .nav-menu{
-    font-size:8vw;
-    right:5%;
+    font-size:5.2vw;
+    top:2%;
+    left:0%;
   }
 
   .logo{
-    width:40%;
-    right:30%;
+    width:60%;
+    height:60%;
+    top:18%;
+    right:1%;
   }
 
   .content{
-    padding-top:40px;
+    top:45%;
+    width:60%;
   }
 
-  .first-line  { font-size: 13px;
-   }  
+  .first-line{
+    font-size:2vw;
+    padding-bottom:3%;
+  }
+  .second-line{
+    font-size:4vw;
+    padding-bottom:3%;
+  }
+  .third-line{
+    font-size:1.5vw;
+  }
 
-  .second-line { font-size: 25px;
-  width:90% 
-  }  
+}
 
-  .third-line  { font-size: 12px;
-  width:70%; 
-}  
+/*Small Laptops */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  body {
+    font-size: 17px;
+    align-items:flex-start;
+    justify-content: center;
+  }
+
+  .desktop-border-container{
+    padding:20px;
+  }
+
+  .nav-bar{
+    width:50vw;
+    font-size:1.4vw;
+    gap:15px;
+    right:2%;
+    top:3%;
+  }
+
+  .nav-menu{
+    display:none;
+  }
+
+  .tars-logo{
+    font-size:5.3vw;
+    top:3%;
+    left:1%;
+  }
+
+  .logo{
+    width:60%;
+    height:60%;
+    top:20%;
+    right:3%;
+  }
+
+  .content{
+    top:50%;
+    width:60%;
+  }
+
+  .first-line{
+    font-size:2vw;
+    padding-bottom:1%;
+  }
+  .second-line{
+    font-size:4vw;
+    padding-bottom:4%;
+  }
+  .third-line{
+    font-size:1.5vw;
+  }
+
+}
+
+/* Large Desktops */
+@media (min-width: 1281px) {
+  body {
+    font-size: 18px;
+    align-items:flex-start;
+    justify-content: center;
+  }
+
+  .nav-bar{
+    width:100%;
+    right:1%;
+    top:0%;
+  }
+
+  .nav-menu{
+    display:none;
+  }
+
+  .content{
+    top:50%;
+    left:10%;
+    width:50%;
+  }
+
+
 }

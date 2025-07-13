@@ -57,14 +57,19 @@
     <script>
       window.addEventListener("resize", () => {
       const border = document.getElementById("border");
-      if (window.innerWidth < 850) {
+      if (window.innerWidth < 768) {
         border.src = "svg/Mobile border.svg";
       } else {
         border.src = "svg/Desktop border.svg";
       }
     });
 
+      const hamburger = document.getElementById('.nav-menu');
+      const nav = document.getElementById('.nav-bar');
 
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('.show');
+      });
     </script>
 
   </body>
