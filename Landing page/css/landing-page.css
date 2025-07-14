@@ -7,6 +7,7 @@ body{
   min-height:100vh;
   background: linear-gradient(to top right,#010006 20%,#110C1D 50%,#150D2B ,#1A0E39 70%,#1E0E43 80% ,#200560);
   background-attachment: fixed;
+  min-width:200px;
 }
 
 .desktop-border-container{

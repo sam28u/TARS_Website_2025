@@ -1,5 +1,5 @@
 /*mobile*/
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   body {
     font-size: 15px;
     align-items:flex-start;
@@ -9,7 +9,7 @@
   .nav-bar{
     display:none;
   }
-
+  
   .tars-logo{
     top:0%;
     left:2%;
@@ -48,7 +48,7 @@
 }
 
 /*tablet*/
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   body {
     font-size: 16px;
     align-items:flex-start;
@@ -63,7 +63,7 @@
     width:48vw;
     font-size:1.3vw;
     gap:15px;
-    right:1%;
+    right:2%;
     top:2%;
   }
 
@@ -78,15 +78,16 @@
   }
 
   .logo{
-    width:60%;
-    height:60%;
-    top:18%;
-    right:1%;
+    width:57%;
+    height:57%;
+    top:25%;
+    right:2%;
   }
 
   .content{
     top:45%;
-    width:60%;
+    width:50%;
+    left:8%;
   }
 
   .first-line{
@@ -134,15 +135,16 @@
   }
 
   .logo{
-    width:60%;
-    height:60%;
-    top:20%;
-    right:3%;
+    width:55%;
+    height:55%;
+    top:25%;
+    right:6%;
   }
 
   .content{
     top:50%;
     width:60%;
+    left:10%;
   }
 
   .first-line{
@@ -182,6 +184,4 @@
     left:10%;
     width:50%;
   }
-
-
 }
