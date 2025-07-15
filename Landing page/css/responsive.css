@@ -1,3 +1,27 @@
+  /*------------svg blur effect---------------------*/
+#mobile-blur-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 1000;
+
+   clip-path: url(#mobileShape);
+  -webkit-clip-path: url(#mobileShape);
+
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px); /*for safari browser*/
+  pointer-events: none;
+}
+
+#mobile-blur-shape.show{
+  display:block;
+}
+/*-----------------------------------------*/
+
 /*mobile*/
 @media (max-width: 768px) {
   body {
@@ -7,13 +31,43 @@
   }
 
   .nav-bar{
-    display:none;
+    display: none;
+    flex-direction:column;
+    position:absolute;
+    justify-content: flex-start;
+    align-items: flex-start;
+    top:15%;
+    left:auto;
+    right:-100%;
+    width:50%;
+    height:80%;
+    gap:8.5%;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    font-size:4.5vw;
+    z-index:10002;
+    background:none;
   }
-  
-  .tars-logo{
-    top:0%;
-    left:2%;
-    font-size:9vw;
+
+  .nav-bar .nav-list{
+    color:white;
+  }
+
+  .nav-list{
+    display:flex;
+    flex-direction: column;
+    align-items:start;
+    width:100%;
+  }
+
+  .nav-bar::after{
+    content: none;
+  }
+
+  .nav-bar.show{
+    display:flex;
+    right:0;
+    transform: translateX(0);
   }
 
   .nav-menu{
@@ -21,17 +75,39 @@
     right:3%;
   }
 
+.dsk-border{
+  position:relative;
+  overflow:hidden;
+}
+  
+  .tars-logo{
+    top:0%;
+    left:2%;
+    font-size:9vw;
+  }
+
+  .desktop-border-container{
+    position:relative;
+    overflow:hidden;
+  }
+
+  .nav-bar.show{
+    transform:translateX(0);
+  }
+
   .logo{
     width:50%;
     height:40%;
     left:25%;
     top:15%;
+    z-index:1000;
   }
 
   .content{
     width:70%;
     left:10%;
     top:60%;
+    z-index:1000;
   }
 
   .first-line{
@@ -172,7 +248,7 @@
   .nav-bar{
     width:100%;
     right:1%;
-    top:0%;
+    top:1%;
   }
 
   .nav-menu{
