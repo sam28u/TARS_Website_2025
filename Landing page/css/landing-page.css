@@ -1,0 +1,154 @@
+body{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  margin:0;
+  padding:0;
+  min-height:100vh;
+  background: linear-gradient(to top right,#010006 20%,#110C1D 50%,#150D2B ,#1A0E39 70%,#1E0E43 80% ,#200560);
+  background-attachment: fixed;
+  min-width:200px;
+}
+
+.desktop-border-container{
+  margin:20px;
+  padding:0;
+  position:relative;
+  width:100%;
+  max-width:1228px;
+  top:30px;
+  box-sizing: border-box;
+  overflow:hidden;
+}
+
+.tars-logo{
+  margin:0;
+  padding:0;
+  font-family: Maztech;
+  color:#CAB5FF;
+  font-size:65px;
+  display:flex;
+  align-items:flex-start;
+  justify-content: flex-start;
+  position:absolute;
+  top:0%;
+  left:0%;
+}
+
+.nav-menu{
+  position:absolute;
+  color:#cab5ffe1;
+  border:none;
+  background:none;
+  font-size: 50px;
+  right:40px;
+  top:20px;
+  z-index:10002;
+}
+
+.nav-bar{
+  top:5px;
+  right:15px;
+  margin:0;
+  padding:8px 16px;
+  font-family:Kode mono;
+  font-size:16px;
+  width:90%;
+  max-width: 650px;
+  height:auto;
+  display:flex;
+  flex-wrap:wrap;
+  position:absolute;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  border:none;
+  background: linear-gradient(to right,#1a0d39,#1D0E40,#1F0F48,#251059,#281062 );
+  border-radius:35px;
+  gap:30px;
+}
+
+.nav-bar::after{
+  content:'';
+  position:absolute;
+  justify-content: center;
+  align-items:center;
+  height:120%;
+  width:101%;
+  border-radius:35px;
+  background-image:linear-gradient(to bottom left,#926EE8 ,#291651,#10022D 70%);
+  z-index:-1;
+}
+
+#mobile-blur-shape{
+  display: none;
+}
+
+#mobile-blur-shape.show{
+  display:block;
+}
+
+.nav-list{
+  all:unset;
+  color:#CAB5FF;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  align-items:center;
+  cursor: pointer;
+}
+
+.dsk-border {
+  display: flex;
+  width: 100%;
+  height: auto;
+  position:relative;
+  max-width:1220px;
+}
+
+
+.content{
+  display:flex;
+  flex-direction: column;
+  position:absolute;
+  justify-content: flex-start;
+  align-items:flex-start;
+  color:#CAB5FF;
+  font-family:Kode mono;
+  z-index: 10002;
+  top:450px;
+  left:60px;
+  margin:0;
+  padding:0;
+  max-width:630px;
+  width:100%;
+}
+
+.first-line{
+  margin:0;
+  padding:0;
+  padding-bottom:5px;
+  font-size:25px;
+}
+.second-line{
+  margin:0;
+  padding:0;
+  padding-bottom:30px;
+  font-size: 50px;
+}
+.third-line{
+  margin:0;
+  padding:0;
+  padding-bottom:30px;
+  font-size:20px;
+}
+
+.logo{
+  display:flex;
+  position:absolute;
+  right:10%;
+  top:23%;
+  z-index:10002;
+  max-width:400px;
+  height:auto;
+}
