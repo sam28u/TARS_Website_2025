@@ -1,0 +1,188 @@
+import { useState } from 'react'
+import { FaSquareInstagram } from "react-icons/fa6";
+import { FaFacebook } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+
+
+function App() {
+  const GOOGLE_SCRIPT_URL = import.meta.env.GOOGLE_SCRIPT_URL;
+  const [formData, setFormData] = useState({
+    name: '',
+    message: ''
+  })
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState('')
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    if (!formData.name.trim() || !formData.message.trim()) {
+      setSubmitStatus('Please fill in all fields')
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitStatus('')
+
+    try {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        mode: 'no-cors'
+      })
+      setSubmitStatus('Message sent successfully!')
+      setFormData({ name: '', message: '' })
+    } catch (error) {
+      setSubmitStatus('Failed to send message. Please try again.')
+      console.error('Error:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  return (
+    <div className='w-full lg:bg-black bg-[linear-gradient(to_top_right,#000000_19%,#160441_67%,#2D0886_89%,#450DCB_100%)] inter bg-black text-white relative overflow-hidden'>
+
+      <div className='absolute inset-0 lg:bg-black'></div>
+
+      <div className='relative z-10'>
+        {/* mobile and tablet */}
+        <div className='lg:hidden flex container mx-auto py-10 px-5'>
+          <div className='w-16 flex flex-col items-center justify-start pt-0'>
+            <img src="/TarsLogo 1.svg" alt="Description" width="50" className='mb-5' height="70"></img>
+            <img src="/TARS.svg" alt="Description" width="30" height="30" ></img>
+          </div>
+          <div className='flex-1 flex flex-col justify-center px-6 py-8'>
+            <div className='mb-8'>
+              <div className='font-bold text-xl mb-6 text-center'>CONTACT US</div>
+              <div className='space-y-4'>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder='Name'
+                  value={formData.name}
+                  onChange={handleChange}
+                  className='bg-white/90 text-black font-medium rounded-lg w-1/2 px-4 py-2 md:p-4 text-sm outline-none placeholder-gray-600'
+                />
+                <textarea
+                  name="message"
+                  placeholder='Your message'
+                  value={formData.message}
+                  onChange={handleChange}
+                  className='bg-white/90 text-black p-4 min-h-40 text-sm font-medium rounded-lg outline-none resize-none w-full placeholder-gray-600'
+                />
+                <button
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                  className='w-24 bg-blue-400 text-black text-sm font-bold px-4 py-2 rounded-lg hover:bg-blue-500 transition-colors'
+                >
+                  {isSubmitting ? '...' : 'Submit'}
+                </button>
+                {submitStatus && (
+                  <div className={`text-sm p-2 rounded ${submitStatus.includes('success') ? 'text-green-400' : 'text-red-400'}`}>
+                    {submitStatus}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className='mt-5 ml-[-50px]'>
+              <div className='flex justify-center gap-6 mb-4'>
+                <FaSquareInstagram size="24" className='hover:scale-110 cursor-pointer transition-all ease-in text-white' />
+                <FaFacebook size="24" className='hover:scale-110 cursor-pointer transition-all ease-in text-white' />
+                <FaLinkedin size="24" className='hover:scale-110 cursor-pointer transition-all ease-in text-white' />
+              </div>
+
+              <div className='text-center text-xs px-2 leading-tight text-gray-300'>
+                <div>©2025 The Autonomous & Robotics Society IIIT Bhubaneswar.</div>
+                <div>None of the right reserved</div>
+                <div className='mt-1'>Designed & Developed by Om Satyajit</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* desktop */}
+        <div className='hidden container mx-auto lg:block pt-10 pb-0'>
+          <div className='container mx-auto max-w-6xl px-4 flex w-full justify-center gap-20'>
+            <div className='mb-3'>
+              <div className='text-center lg:text-left flex flex-col gap-7'>
+                <img src="/TarsLogo 1.svg" alt="Description" width="100" height="100" className='pr-3' />
+                <img src="/TARS.svg" alt="Description" width="70" height="100" />
+              </div>
+            </div>
+
+            <div className='flex flex-col w-6/7 lg:flex-row gap-6 lg:gap-8 py-30 pb-25'>
+              <div className='w-full lg:w-1/2 order-1 lg:order-2'>
+                <div className='font-bold text-2xl sm:text-3xl lg:text-4xl mb-3'>CONTACT US</div>
+                <div className='flex gap-4 flex-col'>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder='Name'
+                    value={formData.name}
+                    onChange={handleChange}
+                    className='bg-white font-semibold rounded-md w-1/2 max-w-md p-3 text-sm outline-none text-black'
+                  />
+                  <textarea
+                    name="message"
+                    placeholder='Your message'
+                    value={formData.message}
+                    onChange={handleChange}
+                    className='bg-white text-black p-3 min-h-32 sm:min-h-40 lg:min-h-60 text-sm font-semibold rounded-md outline-none resize-none w-full'
+                  />
+                  <button
+                    onClick={handleSubmit}
+                    disabled={isSubmitting}
+                    className='w-1/4 max-w-32 bg-[#88B6FE] text-black text-sm cursor-pointer font-bold px-4 py-2 rounded-md hover:bg-[#7AA5ED] transition-colors'
+                  >
+                    {isSubmitting ? 'SENDING...' : 'SUBMIT'}
+                  </button>
+                  {submitStatus && (
+                    <div className={`text-sm p-2 rounded ${submitStatus.includes('success') ? 'text-green-400' : 'text-red-400'}`}>
+                      {submitStatus}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className='w-full pt-14 lg:w-1/2 order-2 lg:order-1'>
+                <div className='font-semibold text-xl sm:text-2xl mb-0'>QUICK LINKS :</div>
+                <ul className='text-sm sm:text-md py-6 space-y-2'>
+                  <li className='my-1'><span className='relative text-white hover:text-gray-400 cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:h-[1px] before:w-0 hover:before:w-full before:bottom-0 before:right-0 before:origin-right'>About us</span></li>
+                  <li className='my-1'><span className='relative text-white hover:text-gray-400 cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:h-[1px] before:w-0 hover:before:w-full before:bottom-0 before:right-0 before:origin-right'>Blogs</span></li>
+                  <li className='my-1'><span className='relative text-white hover:text-gray-400 cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:h-[1px] before:w-0 hover:before:w-full before:bottom-0 before:right-2 before:origin-right'>Projects</span></li>
+                  <li className='my-1'><span className='relative text-white hover:text-gray-400 cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:h-[1px] before:w-0 hover:before:w-full before:bottom-0 before:right-0 before:origin-right'>Our Team</span></li>
+                  <li className='my-1'><span className='relative text-white hover:text-gray-400 cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:h-[1px] before:w-0 hover:before:w-full before:bottom-0 before:right-0 before:origin-right'>Live Events</span></li>
+                </ul>
+
+
+                <div className='flex flex-col font-light text-xs w-full pr-20'>
+                  <div className='flex justify-center gap-10 p-5'>
+                    <FaSquareInstagram size="32" className='hover:scale-110 cursor-pointer transition-all ease-in' />
+                    <FaFacebook size="32" className='hover:scale-110 cursor-pointer transition-all ease-in' />
+                    <FaLinkedin size="32" className='hover:scale-110 cursor-pointer transition-all ease-in' />
+                  </div>
+                  <div className='text-center text-xs px-2 leading-tight'>©2025 The Autonomous & Robotics Society IIIT Bhubaneswar.</div>
+                  <div className="text-center text-xs px-2 leading-tight">None of the right reserved</div>
+                  <div className='text-center text-xs mt-1'>Designed & Developed by Om Satyajit</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default App
