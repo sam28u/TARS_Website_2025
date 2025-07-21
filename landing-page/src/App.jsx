@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="
       flex justify-top items-start
-      m-0 p-0
+      m-0 p-5
       min-h-screen min-w-[200px]
 
       bg-custom-dark-gradient-tars
@@ -49,7 +49,7 @@ function App() {
       box-border
 
       sm:overflow-hidden
-      md:p-[10px] md:top-[10px]
+      md:p-[10px] 
       lg:p-[20px]
     ">
         {/* ... desktop border container... */}
@@ -57,7 +57,7 @@ function App() {
         <img
           id="border"
           className="
-            flex w-full h-auto max-w-[1220px]
+            flex w-full h-auto max-w-[1220px] 
             max-[767px]:overflow-hidden
           "
           src={borderSrc}
@@ -135,9 +135,10 @@ function App() {
             font-[Maztech] text-[#CAB5FF] no-underline
             flex items-start justify-start
             cursor-pointer
-            text-[9vw] top-0 left-[5%]
+            text-[8vw] top-0 left-[5%]
 
-            md:text-[5.3vw] md:top-[1.2%] md:left-[1%]
+            sm:text-[8vw] sm:top-[0%]
+            md:text-[5vw] md:top-[1.2%] md:left-[1%]
             lg:text-[clamp(3rem,5.3vw,4rem)] lg:top-[2%] lg:left-[1%]
           ">
           TARS
