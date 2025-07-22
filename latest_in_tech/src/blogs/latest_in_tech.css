@@ -1,0 +1,148 @@
+*{
+   margin: 0;
+   padding:0;
+    background: linear-gradient(to top right, #010006 20%, #110C1D 50%, #150D2B, #1A0E39 70%, #1E0E43 80%, #200560);
+  background-attachment: fixed;
+}
+
+
+.text-container{
+  height: 498px;
+  width: 69px;
+  margin-top: 67.16px;
+  margin-left:81px ;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:space-evenly;
+  position: sticky;
+}
+ @font-face {
+  font-family: 'Maztech';
+  src: url("./Maztech.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.text-font {
+  font-family: 'Maztech', sans-serif;
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 112px;
+  color: #CAB5FF;
+  letter-spacing: 0%;
+}
+.logo-svg{
+  width: 84px;
+  height: 92.84px;
+  margin-top: 106px;
+  margin-left: 74px;
+}
+.navbar{
+ 
+ display:flex;
+ flex-direction: column;
+ width:141px ;
+ height: 624px;
+ margin-top:210px;
+ margin-right :170px;
+  margin-right :47px;
+ border-radius: 35px;
+ border:3px ;
+ justify-content:space-evenly;
+ align-items: center; 
+ background: linear-gradient(to right, #1a0d39, #1D0E40, #1F0F48, #251059, #281062);
+
+border: none;
+ backdrop-filter: blur(44.1px);
+
+ 
+}
+.nav-bar::after {
+  content: '';
+  position: absolute;
+  height: 107%;
+  width: 102%;
+  border-radius: 35px;
+  position: absolute;
+  background-image: linear-gradient(to bottom left, #926EE8, #291651, #10022D 70%);
+  z-index: -1;
+}
+.navbar_text{
+  font-family:kode mono,sans-serif;
+font-size: 20px;
+font-weight: 400;
+text-decoration: none;
+color: #CAB5FF;
+line-height: 100%;
+letter-spacing: 0%;
+ background: linear-gradient(to right, #1a0d39, #1D0E40, #1F0F48, #251059, #281062);
+}
+
+/* .slide-outer-div{
+  border-radius: 35px;
+  width:936px ;
+  height:624px ;
+  margin-top:210px ;
+  margin-left: 210px;
+  display:flex; 
+}*/
+
+.slide-inner-div{
+  border-radius: 35px;
+   border-radius: 35px;
+  width:276px ;
+  height:451px ;
+  margin-top: 314px;
+  margin-left: 231px;
+  
+}
+.swiper-button-prev,
+.swiper-button-next {
+            bottom: 20px;
+            top: auto;
+            transform: none;
+            z-index: 10;
+          }
+
+          .swiper-button-prev {
+            right: 60px;
+            left: auto;
+          }
+
+          .swiper-button-next {
+            right: 20px;
+          }
+        
+  
+ 
+
+
+.navbar_text {
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: 'auto';
+  font-weight: '200px';
+  font-style: ''normal;
+}
+ 
+ .custom-slide {
+  width: 276px;
+  border-radius: 35px;
+  background: linear-gradient(to right, #1a0d39, #1D0E40, #1F0F48, #251059, #281062);
+  color: #CAB5FF;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+   border: '2px solid #a77fff';
+  box-shadow: '0 0 10px #a77fff, 0 0 20px #a77fff', 
+
+}
+.slide-text{
+  background: linear-gradient(to right, #1a0d39, #1D0E40, #1F0F48, #251059, #281062);
+  color: #CAB5FF;
+  font-family: "Kode Mono", monospace;
+} 
+
