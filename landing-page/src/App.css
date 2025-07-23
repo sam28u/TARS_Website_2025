@@ -4,30 +4,10 @@
   src: url('./assets/Maztech.ttf');
 }
 
-.nav-bar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 30px;
-  width: 100%;
-  height: 100%;
-  position:relative;
-  z-index:2;
-}
-
-.nav-bar li {
-  margin: 0;
-  padding: 0;
-}
-
+/* Desktop Navigation Styles */
 .nav-bar {
-  top: 5px;
-  right: 15px;
+  top: 1%;
+  right: 2%;
   margin: 0;
   padding: 8px 16px;
   font-family: 'Kode Mono', monospace;
@@ -69,6 +49,27 @@
   transform: translate(-50%, -50%);
 }
 
+.nav-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  position:relative;
+  z-index:2;
+}
+
+.nav-bar li {
+  margin: 0;
+  padding: 0;
+}
+
 .nav-list {
   all: unset;
   color: #CAB5FF;
@@ -81,6 +82,62 @@
 
 .nav-list:hover {
   color: white;
+}
+
+/* Mobile Navigation Styles */
+.mobile-nav-bar {
+  position: absolute;
+  top: 15%;
+
+  width: 50%;
+  height: 80%;
+  font-size: 4.5vw;
+  z-index: 10002;
+  background: none;
+  padding: 0;
+  font-family: 'Kode Mono';
+  display: flex;
+  flex-direction: column;
+  gap: 8.5%;
+
+  transform: translateX(200%);
+  transition: transform 0.2s ease-in-out;
+}
+
+.mobile-nav-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8.5%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.mobile-nav-bar li {
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav-bar .nav-list {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  width: 100%;
+}
+
+.mobile-nav-bar.show {
+ transform: translateX(100%); 
+}
+
+.mobile-nav-bar:not(.show) {
+  pointer-events: none;
 }
 
 /*--- SVG blur effect--- */
@@ -105,51 +162,55 @@
 }
 /*---------------------*/
 
-/* Mobile responsive styles */
-@media (max-width: 767px) {
-  .nav-bar {
-    display: none;
-    position: absolute;
-    top: 15%;
-    right: -100%;
-    width: 50%;
-    height: 80%;
-    font-size: 4.5vw;
-    z-index: 10002;
-    background: none;
-    padding: 0;
+/*----Animation----*/
+.shimmer {
+  background: linear-gradient(
+    135deg,
+    #cab5ff 0%,
+    #cab5ff 45%,
+    #ffffff 50%,
+    #cab5ff 55%,
+    #cab5ff 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s infinite linear;
+
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-900 {
+  animation-delay: 900ms;
+}
+
+.animation-delay-1600 {
+  animation-delay: 1600ms;
+}
+/*---------------------*/
+
+@media (min-width: 100px) {
+  .nav-bar{
+    display:none;
   }
 
-  .nav-bar ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 8.5%;
-  }
-
-  .nav-bar .nav-list {
-    color: white;
-  }
-
-  .nav-list {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    width: 100%;
-  }
-
-  .nav-bar::before{
-    content:none;
-  }
-
-  .nav-bar::after {
-    content: none;
-  }
-
-  .nav-bar.show {
-    display: flex;
-    right: 0;
+   .mobile-nav-bar {
+    transform: translateX(300%);
+    transition: transform 0.3s ease-in-out;
+    display:block;
   }
 }
 
@@ -158,9 +219,11 @@
   .nav-bar {
     width: 55%;
     font-size: 1.3vw;
-    gap: 15px;
+    gap: 5%;
+    white-space: nowrap;
     right: 2%;
     top: 2%;
+    display: block;
   }
 
   .nav-bar ul {
@@ -179,6 +242,9 @@
     font-size: inherit;
     white-space: nowrap;
   }
+   .mobile-nav-bar {
+    display: none !important;
+  }
 }
 
 /* Small Laptops */
@@ -188,6 +254,7 @@
     font-size: 1.4vw;
     right: 2%;
     top: 3%;
+    display: block;
   }
 
   .nav-bar ul {
@@ -196,9 +263,14 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 3.5%;
+    white-space: nowrap;
     width: 100%;
     height: 100%;
+  }
+
+   .mobile-nav-bar {
+    display: none !important;
   }
 }
 
@@ -208,5 +280,10 @@
     width: 100%;
     right: 1%;
     top: 3%;
+    display: block;
+  }
+
+   .mobile-nav-bar {
+    display: none !important;
   }
 }
