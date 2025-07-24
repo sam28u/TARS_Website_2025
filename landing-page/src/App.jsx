@@ -27,7 +27,7 @@ function App() {
       flex justify-top items-start
       m-0 p-5
       min-h-screen min-w-[200px]
-
+      overflow-x-hidden
       bg-custom-dark-gradient-tars
 
       md:items-start md:justify-center
@@ -54,7 +54,7 @@ function App() {
     <img
       src={mobileBorder}
       alt="Mobile Border"
-      className="block md:hidden w-full max-w-[1220px] h-auto"
+      className="block md:hidden w-full min-w-[150px] max-w-[767px] h-auto"
     />
     <img
       src={desktopBorder}
