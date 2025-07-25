@@ -9,11 +9,7 @@ function nav_bar (){
             <div><a href ="/" className="navbar_text">PAST</a></div>
             <div><a href ="/" className="navbar_text">PROJECTS</a></div>
             <div><a href ="/" className="navbar_text">OUR TEAM</a></div>
-            <div><a href ="/" className="navbar_text">GALLERY</a></div>
-            
-            
-            
-            
+            <div><a href ="/" className="navbar_text">GALLERY</a></div>   
          </div>
         </>
     );

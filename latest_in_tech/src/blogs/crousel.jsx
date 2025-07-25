@@ -49,40 +49,24 @@ const slides = [
 
 function Carousel() {
   return (
-    <div
+    <div className="carousel-wrapper">
     
-
-      style={{
-        width: '936px',
-        height: '624px',
-        borderRadius: '35px',
-       padding:'16px',
-         background: 'linear-gradient(to right, #1a0d39, #1D0E40, #1F0F48, #251059, #281062)',
-        
-        boxSizing: 'border-box',
-        marginTop: '210px',
-         marginLeft: '60px',
-          marginRight: '47pxpx',
-         
-        overflow: 'hidden',
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-end'
-      }}
-    >
       {/* Top-right aligned heading */}
       <div
         style={{
           height: '61px',
           display: 'flex',
           fontFamily:'kode mono',
-          alignItems: 'center',
+          justifyContent:'flex-end',
+          alignItems:'flex-end',
+          position:'relative',
+          left:'28%',
           color: '#CAB5FF',
           fontSize: '40px',
           fontWeight: 'bold',
           marginBottom: '10px',
-           background: 'linear-gradient(to right, #281062)'
+          background: 'none',
+          zIndex:'100',
         }}
       >
         LATEST IN TECH
@@ -101,33 +85,35 @@ function Carousel() {
         spaceBetween={30}
         slidesPerView={3}
         style={{
-          width: '100%',
-          height: '100%',
-          paddingBottom: '150px',
-           background: 'linear-gradient(to right, #1F0F48, #251059, #281062)',
-           borderRadius: '35px',
-           
+          maxWidth: '760px',
+          width:'100%',
+          maxHeight:'400px',
+          height:'100%',
+          paddingBottom:'80px',
+          background:'none',
+          zIndex:'100',
         }}
       >
         {slides.map((d) => (
           <SwiperSlide key={d.id} className="custom-slide">
            
-              <div style={{ display: 'flex', justifyContent: 'center',  background: 'linear-gradient(to right, #1a0d39, #1D0E40, #1F0F48, #251059, #281062)' }}>
+              <div style={{ display: 'flex', justifyContent: 'center',background:'none'}}>
                 <img
                   src={d.image}
                   alt={d.name}
                   style={{
-                    maxWidth: '100%',
-                    height: '150px',
+                    maxWidth: '200px',
+                    width:'100%',
+                    maxHeight: '180px',
+                    height:'100%',
                     objectFit: 'cover',
-                    borderRadius: '8px',
-                     background: 'linear-gradient(to right, #1a0d39, #1D0E40, #1F0F48, #251059, #281062)'
-
+                    borderRadius: '25px',
+                    zIndex:'100'
                   }}
                 />
               </div>
 
-              <div style={{ marginTop: '1rem', background: 'linear-gradient(to right, #1a0d39, #1D0E40, #1F0F48, #251059, #281062)' }}>
+              <div style={{ marginTop: '1rem', background: 'none' }}>
                 <h3 className='slide-text' style={{ margin: '0.5rem 0' }} >{d.name}</h3>
                 <p className='slide-text' style={{ fontSize: '0.9rem' }}>{d.about}</p>
               </div>
@@ -139,40 +125,37 @@ function Carousel() {
       {/* Styling for Pagination and Scrollbar */}
       <style>
         {`
-          .swiper-pagination-bullets {
-            bottom: 30px !important;
-          }
-
           .swiper-pagination-bullet {
             background: white;
             opacity: 0.4;
+            position:relative;
+            bottom:20px;
           }
 
           .swiper-pagination-bullet-active {
-           background: linear-gradient(to right, #1a0d39, #1D0E40, #1F0F48, #251059, #281062);
             opacity: 1;
           }
 
           .swiper-scrollbar {
             height: 6px;
-             background: linear-gradient(to right, #1a0d39, #1D0E40, #1F0F48, #251059, #281062);
             border-radius: 3px;
             position: absolute;
-            bottom: 10px;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
+            bottom: 0px;
+            background:#271849;
           }
 
           .swiper-scrollbar-drag {
-            background: white;
+            background: #CAB5FF;
             border-radius: 3px;
+            position: absolute;
+            bottom: 10px;
+            height:6px;
           }
 
           .swiper-button-next,
           .swiper-button-prev {
-            color: white;
-            background: linear-gradient(to right, #1a0d39, #1D0E40, #1F0F48, #251059, #281062);
+            color: #CAB5FF;
+            background:none;
           }
         `}
       </style>
