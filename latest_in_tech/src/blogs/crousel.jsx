@@ -90,7 +90,7 @@ function Carousel() {
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         navigation
         pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
+        /*scrollbar={{ draggable: true }}*/
         autoplay={{
           delay: 3000,
           disableOnInteraction: false
@@ -163,10 +163,14 @@ function Carousel() {
             opacity: 0.4;
             position: relative;
             bottom: 20px;
+            width: clamp(6px, 1.2vw, 10px);
+            height: clamp(6px, 1.2vw, 10px);
+            margin: 0 clamp(4px, 0.8vw, 6px);
           }
 
           .swiper-pagination-bullet-active {
             opacity: 1;
+            transform: scale(1.2);
           }
 
           .swiper-scrollbar {
@@ -185,9 +189,38 @@ function Carousel() {
           .swiper-button-prev {
             color: #CAB5FF;
             background: none;
+            top: auto;
+            bottom: 10px;
+            width: clamp(24px, 4vw, 32px);    
+            height: clamp(24px, 4vw, 32px);
+          }
+            
+          .swiper-button-prev {
+            left: 10px;
+          }
+
+          .swiper-button-next {
+            left: 50px;
+          }
+
+          .swiper-button-next::after,
+          .swiper-button-prev::after {
+            transform: scale(0.6); 
+            transform-origin: center;
           }
 
           @media (max-width: 768px) {
+            .swiper-button-next::after,
+            .swiper-button-prev::after {
+              transform: scale(0.4); 
+              transform-origin: center;
+            }
+            .swiper-button-next {
+              left: 30px;
+            }
+          }
+            
+          @media (max-width: 400px) {
             .swiper-button-next,
             .swiper-button-prev {
               display: none;

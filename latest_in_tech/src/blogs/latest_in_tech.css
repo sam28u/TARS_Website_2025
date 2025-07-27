@@ -289,3 +289,39 @@ background:none;
   }
 }
 */
+
+@media (max-width: 1024px) {
+  .logo-svg {
+    width: 72px;
+    height: 72px;
+    margin-top: 64px;
+    margin-left: 48px;
+  }
+
+  .text-font {
+    font-size: 64px;
+    line-height: 72px;
+  }
+
+  .text-container {
+    margin-left: 48px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-svg {
+    width: 48px;
+    height: 48px;
+    margin-top: 40px;
+    margin-left: 32px;
+  }
+
+  .text-font {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .text-container {
+    margin-left: 32px;
+  }
+}
