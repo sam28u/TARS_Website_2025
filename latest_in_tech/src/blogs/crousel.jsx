@@ -49,7 +49,14 @@ const slides = [
 
 function Carousel() {
   return (
-    <div className="carousel-wrapper">
+    <div className="carousel-wrapper" style={{
+      backgroundColor: 'rgba(0, 0, 0, 0.4)', // translucent black
+      borderRadius: '20px',
+      padding: '20px',
+      backdropFilter: 'blur(6px)',           // optional: frosted effect
+      WebkitBackdropFilter: 'blur(6px)',     // for Safari
+      boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+    }}>
     
       {/* Top-right aligned heading */}
       <div
