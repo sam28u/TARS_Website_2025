@@ -49,31 +49,37 @@ const slides = [
 
 function Carousel() {
   return (
-    <div className="carousel-wrapper" style={{
-      backgroundColor: 'rgba(0, 0, 0, 0.4)', // translucent black
-      borderRadius: '20px',
-      padding: '20px',
-      backdropFilter: 'blur(6px)',           // optional: frosted effect
-      WebkitBackdropFilter: 'blur(6px)',     // for Safari
-      boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
-    }}>
-    
-      {/* Top-right aligned heading */}
+    <div
+      className="carousel-wrapper"
+      style={{
+        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        borderRadius: '20px',
+        padding: '20px',
+        backdropFilter: 'blur(6px)',
+        WebkitBackdropFilter: 'blur(6px)',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+        maxWidth: '100%',
+        boxSizing: 'border-box',
+        margin: '1rem auto',
+      }}
+    >
+      {/* Heading */}
       <div
         style={{
           height: '61px',
           display: 'flex',
-          fontFamily:'kode mono',
           justifyContent:'flex-end',
           alignItems:'flex-end',
           position:'relative',
-          left:'28%',
+          fontFamily: 'Kode Mono',
           color: '#CAB5FF',
-          fontSize: '40px',
+          fontSize: 'clamp(24px, 4vw, 40px)', // responsive heading
           fontWeight: 'bold',
           marginBottom: '10px',
+          textAlign: 'center',
           background: 'none',
-          zIndex:'100',
+          zIndex: '100',
+          
         }}
       >
         LATEST IN TECH
@@ -90,41 +96,61 @@ function Carousel() {
           disableOnInteraction: false
         }}
         spaceBetween={30}
-        slidesPerView={3}
+        breakpoints={{
+          0: { slidesPerView: 1 },         // phones
+          700: { slidesPerView: 1 },       // tablets & half-laptop
+          850: { slidesPerView: 2 },      // small desktops
+          1000: { slidesPerView: 3 }       // full desktops and above
+        }}
         style={{
           maxWidth: '760px',
-          width:'100%',
           maxHeight:'400px',
           height:'100%',
-          paddingBottom:'80px',
-          background:'none',
-          zIndex:'100',
+          width: '100%',
+          paddingBottom: '80px',
+          background: 'none',
+          zIndex: '100',
         }}
       >
         {slides.map((d) => (
           <SwiperSlide key={d.id} className="custom-slide">
-           
-              <div style={{ display: 'flex', justifyContent: 'center',background:'none'}}>
-                <img
-                  src={d.image}
-                  alt={d.name}
-                  style={{
-                    maxWidth: '200px',
-                    width:'100%',
-                    maxHeight: '180px',
-                    height:'100%',
-                    objectFit: 'cover',
-                    borderRadius: '25px',
-                    zIndex:'100'
-                  }}
-                />
-              </div>
+            <div style={{ display: 'flex', justifyContent: 'center', background: 'none' }}>
+              <img
+                src={d.image}
+                alt={d.name}
+                style={{
+                  maxWidth: '200px',
+                  width: '100%',
+                  maxHeight: '180px',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: '25px',
+                  zIndex: '100'
+                }}
+              />
+            </div>
 
-              <div style={{ marginTop: '1rem', background: 'none' }}>
-                <h3 className='slide-text' style={{ margin: '0.5rem 0' }} >{d.name}</h3>
-                <p className='slide-text' style={{ fontSize: '0.9rem' }}>{d.about}</p>
-              </div>
-            {/* </div> */}
+            <div style={{ marginTop: '1rem', background: 'none', textAlign: 'center' }}>
+              <h3
+                className="slide-text"
+                style={{
+                  margin: '0.5rem 0',
+                  fontSize: 'clamp(16px, 2vw, 22px)',
+                  lineHeight: '1.2em',
+                }}
+              >
+                {d.name}
+              </h3>
+              <p
+                className="slide-text"
+                style={{
+                  fontSize: 'clamp(12px, 1.8vw, 16px)',
+                  lineHeight: '1.4em',
+                }}
+              >
+                {d.about}
+              </p>
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -135,8 +161,8 @@ function Carousel() {
           .swiper-pagination-bullet {
             background: white;
             opacity: 0.4;
-            position:relative;
-            bottom:20px;
+            position: relative;
+            bottom: 20px;
           }
 
           .swiper-pagination-bullet-active {
@@ -146,23 +172,26 @@ function Carousel() {
           .swiper-scrollbar {
             height: 6px;
             border-radius: 3px;
-            position: absolute;
-            bottom: 0px;
-            background:#271849;
+            background: #271849;
           }
 
           .swiper-scrollbar-drag {
             background: #CAB5FF;
             border-radius: 3px;
-            position: absolute;
-            bottom: 10px;
-            height:6px;
+            height: 6px;
           }
 
           .swiper-button-next,
           .swiper-button-prev {
             color: #CAB5FF;
-            background:none;
+            background: none;
+          }
+
+          @media (max-width: 768px) {
+            .swiper-button-next,
+            .swiper-button-prev {
+              display: none;
+            }
           }
         `}
       </style>

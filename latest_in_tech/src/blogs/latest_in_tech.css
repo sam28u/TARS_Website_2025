@@ -224,3 +224,68 @@ background:none;
   background-image: linear-gradient(to bottom left, #926EE8, #1f103e 50%, #10022D 70%);
   z-index: 2;
 }
+
+/*@media (max-width: 1024px) {
+  .carousel-wrapper {
+    width: 90%;
+    height: auto;
+    margin: 1rem auto;
+  }
+
+  .navbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  .navbar_text {
+    font-size: 16px;
+    margin: 0.5rem;
+  }
+
+  .text-container {
+    flex-direction: row;
+    height: auto;
+    margin: 1rem auto;
+    width: auto;
+  }
+
+  .text-font {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .logo-svg {
+    width: 64px;
+    height: 64px;
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-wrapper {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .custom-slide {
+    width: 90% !important;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+
+  .text-font {
+    font-size: 36px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+*/
