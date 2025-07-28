@@ -1,11 +1,10 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 import './latest_in_tech.css';
 
 const slides = [
@@ -13,221 +12,146 @@ const slides = [
     id: '1',
     name: 'News Title 1',
     image: 'https://wallpapercave.com/wp/wp3344569.jpg',
-    about: 'Lorem ipsum dolor sit amet.'
+    about: 'News description on a little over item'
   },
   {
     id: '2',
-    name: 'News Title 2',
+    name: 'News Title 2', 
     image: 'https://wallpapercave.com/wp/wp3344569.jpg',
-    about: 'Sed do eiusmod tempor incididunt.'
+    about: 'News description on a little over item'
   },
   {
     id: '3',
     name: 'News Title 3',
     image: 'https://wallpapercave.com/wp/wp3344569.jpg',
-    about: 'Ut enim ad minim veniam.'
+    about: 'News description on a little over item'
   },
   {
     id: '4',
     name: 'News Title 4',
     image: 'https://wallpapercave.com/wp/wp3344569.jpg',
-    about: 'Quis nostrud exercitation ullamco.'
+    about: 'News description on a little over item'
   },
   {
     id: '5',
     name: 'News Title 5',
     image: 'https://wallpapercave.com/wp/wp3344569.jpg',
-    about: 'Laboris nisi ut aliquip ex ea commodo.'
-  },
-  {
-    id: '6',
-    name: 'News Title 6',
-    image: 'https://wallpapercave.com/wp/wp3344569.jpg',
-    about: 'Laboris nisi ut aliquip ex ea commodo.'
+    about: 'News description on a little over item'
   }
 ];
 
 function Carousel() {
   return (
-    <div
-      className="carousel-wrapper"
-      style={{
-        backgroundColor: 'rgba(0, 0, 0, 0.4)',
-        borderRadius: '20px',
-        padding: '20px',
-        backdropFilter: 'blur(6px)',
-        WebkitBackdropFilter: 'blur(6px)',
-        boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
-        maxWidth: '100%',
-        boxSizing: 'border-box',
-        margin: '1rem auto',
-      }}
-    >
+    <div className="carousel-wrapper">
       {/* Heading */}
-      <div
-        style={{
-          height: '61px',
-          display: 'flex',
-          justifyContent:'flex-end',
-          alignItems:'flex-end',
-          position:'relative',
-          fontFamily: 'Kode Mono',
-          color: '#CAB5FF',
-          fontSize: 'clamp(24px, 4vw, 40px)', // responsive heading
-          fontWeight: 'bold',
-          marginBottom: '10px',
-          textAlign: 'center',
-          background: 'none',
-          zIndex: '100',
-          
-        }}
-      >
+      <div style={{
+        fontFamily: 'Kode Mono, monospace',
+        color: '#CAB5FF',
+        fontSize: '36px',
+        fontWeight: 'bold',
+        marginBottom: '30px',
+        textAlign: 'center',
+        background: 'none',
+        zIndex: '100',
+        position: 'relative'
+      }}>
         LATEST IN TECH
       </div>
 
       {/* Swiper Carousel */}
-      <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-        navigation
-        pagination={{ clickable: true }}
-        /*scrollbar={{ draggable: true }}*/
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false
-        }}
-        spaceBetween={30}
-        breakpoints={{
+      <div className="carousel-container">
+        <Swiper
+          modules={[Navigation, Pagination, A11y, Autoplay]}
+          navigation={{
+            nextEl: '.custom-next',
+            prevEl: '.custom-prev',
+          }}
+          pagination={{ 
+            clickable: true,
+            dynamicBullets: false
+          }}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false
+          }}
+          spaceBetween={20}
+          slidesPerView={3}
+          centeredSlides={false}
+          loop={true}
+          className="carousel-swiper"
+          breakpoints={{
           0: { slidesPerView: 1 },         // phones
           700: { slidesPerView: 1 },       // tablets & half-laptop
           850: { slidesPerView: 2 },      // small desktops
-          1000: { slidesPerView: 3 }       // full desktops and above
-        }}
-        style={{
-          maxWidth: '760px',
-          maxHeight:'400px',
-          height:'100%',
-          width: '100%',
-          paddingBottom: '80px',
-          background: 'none',
-          zIndex: '100',
-        }}
-      >
-        {slides.map((d) => (
-          <SwiperSlide key={d.id} className="custom-slide">
-            <div style={{ display: 'flex', justifyContent: 'center', background: 'none' }}>
-              <img
-                src={d.image}
-                alt={d.name}
-                style={{
-                  maxWidth: '200px',
-                  width: '100%',
-                  maxHeight: '180px',
-                  height: '100%',
-                  objectFit: 'cover',
-                  borderRadius: '25px',
-                  zIndex: '100'
-                }}
-              />
-            </div>
+          1000: { slidesPerView: 3 }      // full desktops and above
+          }}  
+        >
+          {slides.map((slide) => (
+            <SwiperSlide key={slide.id}>
+              <div className="custom-slide">
+                <div style={{ 
+                  display: 'flex', 
+                  justifyContent: 'center', 
+                  background: 'none',
+                  marginBottom: '15px'
+                }}>
+                  <img
+                    src={slide.image}
+                    alt={slide.name}
+                    style={{
+                      width: '200px',
+                      height: '140px',
+                      objectFit: 'cover',
+                      borderRadius: '15px',
+                      position: 'relative',
+                      zIndex: '10'
+                    }}
+                  />
+                </div>
 
-            <div style={{ marginTop: '1rem', background: 'none', textAlign: 'center' }}>
-              <h3
-                className="slide-text"
-                style={{
-                  margin: '0.5rem 0',
-                  fontSize: 'clamp(16px, 2vw, 22px)',
-                  lineHeight: '1.2em',
-                }}
-              >
-                {d.name}
-              </h3>
-              <p
-                className="slide-text"
-                style={{
-                  fontSize: 'clamp(12px, 1.8vw, 16px)',
-                  lineHeight: '1.4em',
-                }}
-              >
-                {d.about}
-              </p>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+                <div style={{ 
+                  background: 'transparent', 
+                  textAlign: 'left', 
+                  padding: '0 15px',
+                  position: 'relative',
+                  zIndex: '10'
+                }}>
+                  <h3 className="slide-text" style={{
+                    margin: '10px 0',
+                    fontSize: '16px',
+                    fontWeight: 'bold',
+                    lineHeight: '1.3em',
+                  }}>
+                    {slide.name}
+                  </h3>
+                  <p className="slide-text" style={{
+                    fontSize: '13px',
+                    lineHeight: '1.4em',
+                    opacity: 0.85,
+                    margin: 0
+                  }}>
+                    {slide.about}
+                  </p>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-      {/* Styling for Pagination and Scrollbar */}
-      <style>
-        {`
-          .swiper-pagination-bullet {
-            background: white;
-            opacity: 0.4;
-            position: relative;
-            bottom: 20px;
-            width: clamp(6px, 1.2vw, 10px);
-            height: clamp(6px, 1.2vw, 10px);
-            margin: 0 clamp(4px, 0.8vw, 6px);
-          }
-
-          .swiper-pagination-bullet-active {
-            opacity: 1;
-            transform: scale(1.2);
-          }
-
-          .swiper-scrollbar {
-            height: 6px;
-            border-radius: 3px;
-            background: #271849;
-          }
-
-          .swiper-scrollbar-drag {
-            background: #CAB5FF;
-            border-radius: 3px;
-            height: 6px;
-          }
-
-          .swiper-button-next,
-          .swiper-button-prev {
-            color: #CAB5FF;
-            background: none;
-            top: auto;
-            bottom: 10px;
-            width: clamp(24px, 4vw, 32px);    
-            height: clamp(24px, 4vw, 32px);
-          }
-            
-          .swiper-button-prev {
-            left: 10px;
-          }
-
-          .swiper-button-next {
-            left: 50px;
-          }
-
-          .swiper-button-next::after,
-          .swiper-button-prev::after {
-            transform: scale(0.6); 
-            transform-origin: center;
-          }
-
-          @media (max-width: 768px) {
-            .swiper-button-next::after,
-            .swiper-button-prev::after {
-              transform: scale(0.4); 
-              transform-origin: center;
-            }
-            .swiper-button-next {
-              left: 30px;
-            }
-          }
-            
-          @media (max-width: 400px) {
-            .swiper-button-next,
-            .swiper-button-prev {
-              display: none;
-            }
-          }
-        `}
-      </style>
+        {/* Custom Navigation Arrows - Bottom Right */}
+        <div className="custom-navigation">
+          <button className="custom-prev">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <button className="custom-next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

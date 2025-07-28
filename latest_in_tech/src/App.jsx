@@ -2,31 +2,54 @@ import Tars_logo from './blogs/Tars_logo.jsx'
 import Nav_bar from './blogs/nav_bar.jsx'
 import Carousel from './blogs/crousel.jsx'
 
-
 function App() {
-  
   return (
-    <>
-   #<div style= {{ display: 'flex',justifyContent:'space-evenly'   }}> 
-   <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        flexWrap: 'wrap',
-        gap: '1rem',
-        padding: '1rem',
-        minHeight: '100vh',
-        boxSizing: 'border-box'
-      }}
-    ></div>
-   
-       <Tars_logo/> 
-         <Carousel/>
-       <Nav_bar/> 
+    <div style={{ 
+      display: 'flex',
+      minHeight: '100vh',
+      width: '100%',
+      position: 'relative'
+    }}> 
+      {/* Left side - Logo and TARS text - Fixed */}
+      <div style={{ 
+        width: '200px',
+        flexShrink: 0,
+        position: 'fixed',
+        left: 0,
+        top: -50,
+        height: '100vh',
+        zIndex: 1000
+      }}>
+        <Tars_logo/> 
+      </div>
       
-       </div> 
-    </>
+      {/* Center - Carousel - Scrollable */}
+      <div style={{ 
+        flex: 1,
+        marginLeft: '100px',
+        marginRight: '200px',
+        minHeight: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '20px'
+      }}>
+        <Carousel/>
+      </div>
+      
+      {/* Right side - Navigation - Fixed */}
+      <div style={{ 
+        width: '200px',
+        flexShrink: 0,
+        position: 'fixed',
+        right: 0,
+        top: -50,
+        height: '100vh',
+        zIndex: 1000
+      }}>
+        <Nav_bar/> 
+      </div>
+    </div>
   );
 }
 
