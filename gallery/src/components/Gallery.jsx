@@ -1,18 +1,29 @@
-import React from 'react';
-
-function importAll(r) {
-  return r.keys().map(r);
-}
-
-let images = [];
-try {
-  images = importAll(require.context('../../../assets/gallery', false, /\.(png|jpe?g|webp|svg)$/));
-} catch (e) {
-  console.warn("Image folder not found or empty:", e);
-}
+import React, { useState, useEffect } from 'react';
 
 const Gallery = () => {
- 
+  const [images, setImages] = useState([]);
+  
+  useEffect(() => {
+    // Dynamically import images from the gallery folder
+    const importImages = async () => {
+      try {
+        // Get all image files in the gallery directory
+        const context = require.context('../../../assets/gallery', false, /\.(png|jpe?g|webp|svg)$/);
+        const imageModules = context.keys().map(context);
+        
+        // Extract default exports (image URLs)
+        const loadedImages = imageModules.map(module => module.default || module);
+        setImages(loadedImages);
+        
+        console.log('Loaded images:', loadedImages); // Debugging
+      } catch (e) {
+        console.warn("Error loading images:", e);
+      }
+    };
+    
+    importImages();
+  }, []);
+
   const heights = [320, 180, 250, 210, 270, 200, 280, 160, 240, 190, 300, 150];
   
   const borderRadiusList = [
@@ -140,9 +151,9 @@ const Gallery = () => {
                   justifyContent: 'center',
                 }}
               >
-                {item.image ? (
+                {images[item.index] ? (
                   <img
-                    src={item.image}
+                    src={images[item.index]}
                     alt={`Gallery ${item.index + 1}`}
                     style={{ 
                       width: '100%', 
