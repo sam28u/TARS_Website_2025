@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.our-team-title {
+  font-family: 'Kode Mono', monospace;
+  font-weight: 700; 
+  color: #cab5ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+
+.name-text {
+  font-family: "Kode Mono", monospace;
+  font-weight: bold;
+  font-size: 36px;
+  color: #cab5ff;
+}
+
+.degination-text {
+  font-family: "Kode Mono", monospace;
+  font-weight: 500;
+  font-size: 24px;
+  color: #cab5ff;
+}
+
+.meet-all-link {
+  font-family: 'Kode Mono', monospace;
+  font-weight: 700;
+  color: #743BFF;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+
+.meet-all-link:hover {
+  color: #5a2ecc; 
+}
+
+
+.back-button {
+  font-family: 'Kode Mono', monospace;
+  font-weight: 700; 
+  color: #5a2ecc;   /* main color */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #743BFF; /* lighter purple on hover */
+}

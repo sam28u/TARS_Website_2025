@@ -1,0 +1,361 @@
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Merienda:wght@300..900&display=swap");
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.kode-mono {
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+/* Desktop Navigation Styles */
+.nav-bar {
+  top: 1%;
+  right: 2%;
+  margin: 0;
+  padding: 8px 16px;
+  font-family: "Kode Mono", monospace;
+  font-size: 16px;
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  position: absolute;
+  border: none;
+  background: linear-gradient(
+    to right,
+    #1a0d39,
+    #1d0e40,
+    #1f0f48,
+    #251059,
+    #281062
+  );
+  border-radius: 35px;
+  z-index: 10001;
+  background-color: transparent;
+}
+
+.nav-bar::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 98%;
+  height: 79%;
+  background: linear-gradient(
+    to right,
+    #1a0d39,
+    #1d0e40,
+    #1f0f48,
+    #251059,
+    #281062
+  );
+  border-radius: 35px;
+  z-index: 1;
+}
+
+.nav-bar::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 35px;
+  background-image: linear-gradient(
+    to bottom left,
+    #926ee8,
+    #291651,
+    #10022d 70%
+  );
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nav-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.nav-bar li {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list {
+  all: unset;
+  color: #cab5ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-list:hover {
+  color: white;
+}
+
+/* Mobile Navigation Styles */
+.mobile-nav-bar {
+  position: absolute;
+  top: 15%;
+
+  width: 50%;
+  height: 80%;
+  font-size: 4.5vw;
+  z-index: 10002;
+  background: none;
+  padding: 0;
+  font-family: "Kode Mono";
+  display: flex;
+  flex-direction: column;
+  gap: 8.5%;
+
+  transform: translateX(200%);
+  transition: transform 0.2s ease-in-out;
+}
+
+.mobile-nav-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8.5%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.mobile-nav-bar li {
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav-bar .nav-list {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  width: 100%;
+}
+
+.mobile-nav-bar.show {
+  transform: translateX(100%);
+}
+
+.mobile-nav-bar:not(.show) {
+  pointer-events: none;
+}
+
+/*--- SVG blur effect--- */
+#mobile-blur-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 1000;
+  clip-path: url(#mobileShape);
+  -webkit-clip-path: url(#mobileShape);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  pointer-events: none;
+}
+
+#mobile-blur-shape.show {
+  display: block;
+}
+
+@media (min-width: 100px) {
+  .nav-bar {
+    display: none;
+  }
+
+  .mobile-nav-bar {
+    transform: translateX(300%);
+    transition: transform 0.3s ease-in-out;
+    display: block;
+  }
+}
+
+@media (min-width: 1023px) and (max-width: 1024px) {
+  .nav-bar {
+    display: block;
+    width: 56%;
+    top: 2%;
+  }
+
+  .nav-bar ul {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.4vw;
+    white-space: nowrap;
+    gap: 3.3%;
+  }
+}
+
+/* Tablet responsive styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nav-bar {
+    width: 55%;
+    font-size: 1.3vw;
+    gap: 5%;
+    white-space: nowrap;
+    right: 2%;
+    top: 2%;
+    display: block;
+  }
+
+  .nav-bar ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .nav-bar .nav-list {
+    color: #cab5ff;
+    font-size: inherit;
+    white-space: nowrap;
+  }
+  .mobile-nav-bar {
+    display: none !important;
+  }
+}
+
+/* Small Laptops */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .nav-bar {
+    width: 55%;
+    right: 2%;
+    top: 3%;
+    display: block;
+  }
+
+  .nav-bar ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3.3%;
+    white-space: nowrap;
+    width: 100%;
+    height: 100%;
+    font-size: 1.4vw;
+  }
+
+  .mobile-nav-bar {
+    display: none !important;
+  }
+}
+
+/* Large Desktops */
+@media (min-width: 1281px) {
+  .nav-bar {
+    width: 100%;
+    right: 2%;
+    top: 3%;
+    display: block;
+  }
+
+  .nav-bar ul {
+    font-size: 1.1rem;
+    white-space: nowrap;
+    gap: 3.5%;
+  }
+
+  .mobile-nav-bar {
+    display: none !important;
+  }
+}
+
+
+
+.our-team-title {
+  font-family: "Kode Mono", monospace;
+  font-weight: 700;
+  color: #cab5ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.name-text {
+  font-family: "Kode Mono", monospace;
+  font-weight: bold;
+  font-size: 36px;
+  color: #cab5ff;
+}
+
+.degination-text {
+  font-family: "Kode Mono", monospace;
+  font-weight: 500;
+  font-size: 24px;
+  color: #cab5ff;
+}
+
+.meet-all-link {
+  font-family: "Kode Mono", monospace;
+  font-weight: 700;
+  color: #743bff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+
+.meet-all-link:hover {
+  color: #5a2ecc;
+}
+
+.back-button {
+  font-family: "Kode Mono", monospace;
+  font-weight: 700;
+  color: #5a2ecc; /* main color */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #743bff; /* lighter purple on hover */
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
