@@ -12,11 +12,11 @@ const Navbar = ({ refs }) => {
     };
 
     return (
-        <div className="relative inline-block">
+        <div className="relative inline-block grid place-items-center">
             <img className="py-[3vw]" src={nav} alt="" />
 
-            <div className="absolute md:top-[5rem] md:text-[0.9rem] lg:text-[1rem] md:left-[1.3rem] lg:top-[7rem] lg:left-[2.5rem]">
-                <ul className='text-[#CAB5FF] flex flex-col md:gap-[min(2.5rem,200px)] lg:gap-[min(4.5rem,200px)] kode-mono'>
+            <div className="absolute md:top-[4.5rem] md:text-[0.9rem] lg:text-[1rem] lg:top-[6rem]">
+                <ul className='text-[#CAB5FF] flex flex-col justify-center items-center md:gap-[min(3rem,200px)] lg:gap-[min(4.5rem,200px)] kode-mono md:text-md lg:text-lg'>
                     <li
                         className="relative group w-fit cursor-pointer font-bold hover:text-white duration-300"
                         onClick={() => handleScroll(refs.aboutUsRef)}
