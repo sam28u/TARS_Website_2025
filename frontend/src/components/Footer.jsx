@@ -181,7 +181,19 @@ function Footer({ refs }) {
                   ©2025 The Autonomous & Robotics Society IIIT Bhubaneswar.
                 </div>
                 <div>None of the right reserved</div>
-                <div className="mt-1">Designed & Developed by Om Satyajit</div>
+                <div className="mt-1">
+                  Designed by{" "}
+                  <Link href="https://www.instagram.com/satya_zzeet/">
+                    Om Satyajit
+                  </Link>
+                  <br /> Developed by &nbsp;
+                  <Link
+                    href="https://www.linkedin.com/in/sambhu-prasad-verma/"
+                    className="hover:underline"
+                  >
+                    Sambhu Prasad Verma
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -318,8 +330,17 @@ function Footer({ refs }) {
                     None of the right reserved
                   </div>
                   <div className="text-center text-xs mt-1">
-                    Designed by Om Satyajit <br />{" "} Developed by &nbsp;
-                    <Link href="https://www.linkedin.com/in/sambhu-prasad-verma/" className="hover:underline">Sambhu Prasad Verma</Link>
+                    Designed by{" "}
+                    <Link href="https://www.instagram.com/satya_zzeet/">
+                      Om Satyajit
+                    </Link>
+                    <br /> Developed by &nbsp;
+                    <Link
+                      href="https://www.linkedin.com/in/sambhu-prasad-verma/"
+                      className="hover:underline"
+                    >
+                      Sambhu Prasad Verma
+                    </Link>
                   </div>
                 </div>
               </div>
