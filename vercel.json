@@ -5,7 +5,7 @@
   "installCommand": "cd frontend && npm install",
   "framework": "nextjs",
   "outputDirectory": "frontend/.next",
-  "rootDirectory": "frontend",
+  "root": "frontend",
   "rewrites": [
     {
       "source": "/(.*)",
