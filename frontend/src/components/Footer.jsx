@@ -162,18 +162,18 @@ function Footer({ refs }) {
 
             <div className="mt-5 ml-[-50px]">
               <div className="flex justify-center gap-6 mb-4">
-                <FaInstagram
-                  size="24"
-                  className="hover:scale-110 cursor-pointer transition-all ease-in text-white"
-                />
-                <FaFacebook
-                  size="24"
-                  className="hover:scale-110 cursor-pointer transition-all ease-in text-white"
-                />
-                <FaLinkedin
-                  size="24"
-                  className="hover:scale-110 cursor-pointer transition-all ease-in text-white"
-                />
+                <Link href="https://www.instagram.com/tars_iiit_bbsr/">
+                  <FaInstagram
+                    size="24"
+                    className="hover:scale-110 cursor-pointer transition-all ease-in text-white"
+                  />
+                </Link>
+                <Link href="https://www.instagram.com/tars_iiit_bbsr/">
+                  <FaLinkedin
+                    size="24"
+                    className="hover:scale-110 cursor-pointer transition-all ease-in text-white"
+                  />
+                </Link>
               </div>
 
               <div className="text-center text-xs px-2 leading-tight text-gray-300">
@@ -331,7 +331,10 @@ function Footer({ refs }) {
                   </div>
                   <div className="text-center text-xs mt-1">
                     Designed by{" "}
-                    <Link href="https://www.instagram.com/satya_zzeet/">
+                    <Link
+                      href="https://www.instagram.com/satya_zzeet/"
+                      className="hover:underline"
+                    >
                       Om Satyajit
                     </Link>
                     <br /> Developed by &nbsp;
