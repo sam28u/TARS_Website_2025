@@ -21,7 +21,7 @@ const Gallery = () => {
           );
         }
         const data = await response.json();
-        const formattedData = data.data.map((item) => ({
+        const formattedData = data.data.slice().reverse().map((item) => ({
           id: item._id,
           url: item.imageUrl,
         }));
