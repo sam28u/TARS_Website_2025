@@ -11,7 +11,6 @@ import {
 
 // --- Removed all hardcoded image imports (Agriculture, sandrover, etc.) ---
 // --- Removed hardcoded 'cards' array ---
-
 const Projects = () => {
   const [api, setApi] = useState()
   const [isUserInteracting, setIsUserInteracting] = useState(false)
