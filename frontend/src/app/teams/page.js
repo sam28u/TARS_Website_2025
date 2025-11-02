@@ -334,7 +334,7 @@ function TeamPage() {
       <TeamSection title="Authorities" members={teamData.authorities} />
       <TeamSection title="Secretaries" members={teamData.secretaries} />
       <TeamSection title="Leads" members={teamData.leads} />
-      <TeamSection title="Members" members={teamData.members} />
+      <TeamSection2 title="Members" members={teamData.members} />
     </div>
   );
 }
